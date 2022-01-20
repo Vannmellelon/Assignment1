@@ -8,13 +8,13 @@ namespace Assignment1.Characters
 {
     class Rouge : Character
     {
-        // Setting default stats
-        PrimaryAttribute Stats = new PrimaryAttribute
+        // Exposing default constructor
+        public Rouge()
         {
-            Strength = 2,
-            Dexterity = 6,
-            Intelligence = 1
-        };
+            Stats.Strength = 2;
+            Stats.Dexterity = 6;
+            Stats.Intelligence = 1;
+        }
 
         public override void LevelUp()
         {
@@ -37,6 +37,11 @@ namespace Assignment1.Characters
         public override int GetTotalAttributes()
         {
             return GetBaseTotalAttributes(); // pluss!! ItemTotalAttributes() ig
+        }
+
+        public override string DisplayCharacterStats()
+        {
+            throw new NotImplementedException();
         }
     }
 }

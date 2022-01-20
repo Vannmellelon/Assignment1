@@ -11,7 +11,7 @@ namespace Assignment1
         public string Name { get; set; }
         public int Level { get; set; } = 1;
 
-        public PrimaryAttribute Stats;
+        public PrimaryAttribute Stats = new();
 
 
         public abstract void LevelUp();
@@ -20,5 +20,7 @@ namespace Assignment1
         public abstract int GetBaseTotalAttributes();
         // add all stats including equipment osv, namechange
         public abstract int GetTotalAttributes();
+        // Character stats display, name, level, stats + gear bonuses, damage
+        public abstract string DisplayCharacterStats();
     }
 }

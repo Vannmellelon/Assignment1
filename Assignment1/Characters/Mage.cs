@@ -8,13 +8,13 @@ namespace Assignment1
 {
     class Mage : Character
     {
-        // Setting default stats
-        PrimaryAttribute Stats = new PrimaryAttribute
-        {
-            Strength = 1,
-            Dexterity = 1,
-            Intelligence = 8
-        };
+        // Exposing default constructor
+        public Mage()
+        { 
+            Stats.Strength = 1; 
+            Stats.Dexterity = 1;
+            Stats.Intelligence = 8;
+        }
 
         public override void LevelUp()
         {
@@ -39,5 +39,9 @@ namespace Assignment1
             return GetBaseTotalAttributes(); // pluss!! ItemTotalAttributes() ig
         }
 
+        public override string DisplayCharacterStats()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,13 +8,13 @@ namespace Assignment1.Characters
 {
     class Warrior : Character
     {
-        // Setting default stats
-        PrimaryAttribute Stats = new PrimaryAttribute
+        // Exposing default constructor
+        public Warrior()
         {
-            Strength = 5,
-            Dexterity = 2,
-            Intelligence = 1
-        };
+            Stats.Strength = 5;
+            Stats.Dexterity = 2;
+            Stats.Intelligence = 1;
+        }
 
         public override void LevelUp()
         {
@@ -37,6 +37,11 @@ namespace Assignment1.Characters
         public override int GetTotalAttributes()
         {
             return GetBaseTotalAttributes(); // pluss!! ItemTotalAttributes() ig
+        }
+
+        public override string DisplayCharacterStats()
+        {
+            throw new NotImplementedException();
         }
     }
 }
