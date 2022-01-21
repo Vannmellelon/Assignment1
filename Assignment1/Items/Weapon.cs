@@ -13,8 +13,9 @@ namespace Assignment1
         /// </summary>
         public Weapon()
         {
-            Slot = ItemSlot.WeaponSlot;
+            EquipableSlot = Slot.ItemSlot.WeaponSlot;
         }
+
         /// <summary>
         /// Enum for weapon types
         /// </summary>

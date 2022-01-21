@@ -28,7 +28,7 @@ namespace Assignment1
 
         public override double Damage()
         {
-            Weapon wpn = (Weapon)Equipment.GetValueOrDefault(Item.ItemSlot.WeaponSlot);
+            Weapon wpn = (Weapon)Equipment.GetValueOrDefault(Slot.ItemSlot.WeaponSlot);
             if (wpn == null) return 1;
             
             double damage = wpn.DamagePerSecond() * (1 + GetTotalAttributes().Intelligence / 100);
@@ -38,7 +38,7 @@ namespace Assignment1
 
         public override void Equip(Item item)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

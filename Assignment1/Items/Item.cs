@@ -8,16 +8,7 @@ namespace Assignment1
 {
     abstract class Item
     {
-        // Enum for Item slots
-        public enum ItemSlot
-        {
-            WeaponSlot,
-            HeadSlot,
-            BodySlot,
-            LegSlot
-        };
-
-        public ItemSlot Slot;
+        public Slot.ItemSlot EquipableSlot;
         public string Name { get; set; }
         public int RequiredLvl { get; set; }
 

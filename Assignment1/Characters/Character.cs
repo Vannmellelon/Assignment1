@@ -13,7 +13,7 @@ namespace Assignment1
         public int Level { get; set; } = 1;
 
         public PrimaryAttribute Stats = new();
-        public Dictionary<Item.ItemSlot, Item> Equipment = new();
+        public Dictionary<Slot.ItemSlot, Item> Equipment = new();
 
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Assignment1
         public virtual PrimaryAttribute GetTotalEqiupmentAttributes()
         {
             PrimaryAttribute total = new();
-            foreach (KeyValuePair<Item.ItemSlot, Item> entry in Equipment)
+            foreach (KeyValuePair<Slot.ItemSlot, Item> entry in Equipment)
             {
                 total = total + entry.Value.GetAttribute();
             }
