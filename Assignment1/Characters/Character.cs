@@ -27,24 +27,24 @@ namespace Assignment1
         public abstract double Damage();
 
         /// <summary>
-        /// Equips a given piece of armor in the correct slot
+        /// Equips a given piece of armor in the correct slot, throws InvalidArmorException
         /// </summary>
         /// <param name="armor"></param>
         public virtual void EquipArmor(Armor armor)
         {
             Slot.ItemSlot _slot = armor.EquipableSlot;
             if (CheckIfCanEquipArmor(armor) && armor.RequiredLvl <= this.Level) Equipment[_slot] = armor;
-            // else Exception();
+            else throw new InvalidArmorException();
         }
 
         /// <summary>
-        /// Equips a given weapon in the correct slot
+        /// Equips a given weapon in the correct slot, throws InvalidWeaponException
         /// </summary>
         /// <param name="weapon"></param>
         public virtual void EquipWeapon(Weapon weapon)
         {
             if (CheckIfCanEquipWeapon(weapon) && weapon.RequiredLvl <= this.Level) Equipment[Slot.ItemSlot.WeaponSlot] = weapon;
-            // else Exception();
+            else throw new InvalidWeaponException();
         }
 
         /// <summary>
