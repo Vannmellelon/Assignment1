@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class WeaponAttribute : PrimaryAttribute
+    public class WeaponAttribute : PrimaryAttribute
     {
         public int Damage { get; set; }
         public double AttackSpeed { get; set; }

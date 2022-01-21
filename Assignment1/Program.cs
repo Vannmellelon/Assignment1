@@ -18,24 +18,30 @@ namespace Assignment1
 
 			Mage Yen = new Mage();
 			Yen.Name = "Yen";
-            Console.WriteLine(Yen.Name);
-			Console.WriteLine(Yen.Stats.Intelligence);
-			Yen.LevelUp();
-            Console.WriteLine(Yen.Stats.Intelligence);
-            Console.WriteLine(Yen.Level);
-
             Console.WriteLine(Yen.DisplayCharacterStats());
+			Yen.LevelUp();
+			Console.WriteLine(Yen.DisplayCharacterStats());
 
-			Weapon testWpn = new Weapon()
+			Weapon staffForYen = new Weapon()
 			{
-				Name = "En øks",
+				Name = "Stav",
 				RequiredLvl = 1,
-				//Slot = Item.ItemSlot.WeaponSlot,
-				Type = Weapon.WeaponType.Axe,
-				//WeaponStats.Damage = 7,
-				//WeaponStats.AttackSpeed = 1.1
+				Type = Weapon.WeaponType.Staff
 			};
+			staffForYen.SetWeaponStats(0, 0, 5, 3, 2.3);
+			Yen.EquipWeapon(staffForYen);
+			Console.WriteLine(Yen.DisplayCharacterStats());
 
+			Armor armorForYen = new Armor()
+			{
+				Name = "Kappe",
+				RequiredLvl = 2,
+				Type = Armor.ArmorType.Cloth,
+				EquipableSlot = Slot.ItemSlot.BodySlot
+			};
+			armorForYen.SetArmorStats(0, 1, 3);
+			Yen.EquipArmor(armorForYen);
+			Console.WriteLine(Yen.DisplayCharacterStats());
 		}
 	}
 }

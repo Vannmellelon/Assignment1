@@ -33,7 +33,7 @@ namespace Assignment1
         public virtual void EquipArmor(Armor armor)
         {
             Slot.ItemSlot _slot = armor.EquipableSlot;
-            if (CheckIfCanEquipArmor(armor)) Equipment[_slot] = armor;
+            if (CheckIfCanEquipArmor(armor) && armor.RequiredLvl <= this.Level) Equipment[_slot] = armor;
             // else Exception();
         }
 
@@ -43,7 +43,7 @@ namespace Assignment1
         /// <param name="weapon"></param>
         public virtual void EquipWeapon(Weapon weapon)
         {
-            if (CheckIfCanEquipWeapon(weapon)) Equipment[Slot.ItemSlot.WeaponSlot] = weapon;
+            if (CheckIfCanEquipWeapon(weapon) && weapon.RequiredLvl <= this.Level) Equipment[Slot.ItemSlot.WeaponSlot] = weapon;
             // else Exception();
         }
 
@@ -114,6 +114,8 @@ namespace Assignment1
             sb.Append("\nDexterity:\t" + this.GetTotalAttributes().Dexterity.ToString());
             sb.Append("\nIntelligence:\t" + this.GetTotalAttributes().Intelligence.ToString());
             sb.Append("\nStat total:\t" + (this.GetTotalAttributes().Strength + this.GetTotalAttributes().Dexterity + this.GetTotalAttributes().Intelligence).ToString());
+            sb.Append("\n\n");
+
             return sb.ToString();
         }
     }

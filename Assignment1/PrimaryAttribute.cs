@@ -1,6 +1,6 @@
 ﻿namespace Assignment1
 {
-    class PrimaryAttribute
+    public class PrimaryAttribute
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
