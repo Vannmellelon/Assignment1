@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1.Characters
+namespace Assignment1
 {
     class Ranger : Character
     {
-        // Exposing default constructor
+        /// <summary>
+        /// Sets the Ranger's lvl.1 stats
+        /// </summary>
         public Ranger()
         {
             Stats.Strength = 1;
@@ -24,22 +26,17 @@ namespace Assignment1.Characters
             Stats.Intelligence += 1;
         }
 
-        public override void Damage()
+        public override double Damage()
         {
-            throw new NotImplementedException();
+            Weapon wpn = (Weapon)Equipment.GetValueOrDefault(Item.ItemSlot.WeaponSlot);
+            if (wpn == null) return 1;
+
+            double damage = wpn.DamagePerSecond() * (1 + GetTotalAttributes().Dexterity / 100);
+
+            return damage;
         }
 
-        public override int GetBaseTotalAttributes()
-        {
-            return Stats.Strength + Stats.Dexterity + Stats.Intelligence;
-        }
-
-        public override int GetTotalAttributes()
-        {
-            return GetBaseTotalAttributes(); // pluss!! ItemTotalAttributes() ig
-        }
-
-        public override string DisplayCharacterStats()
+        public override void Equip(Item item)
         {
             throw new NotImplementedException();
         }

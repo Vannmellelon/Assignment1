@@ -8,19 +8,85 @@ namespace Assignment1
 {
     abstract class Character
     {
+        // Getters and Setters
         public string Name { get; set; }
         public int Level { get; set; } = 1;
 
         public PrimaryAttribute Stats = new();
+        public Dictionary<Item.ItemSlot, Item> Equipment = new();
 
 
+        /// <summary>
+        /// Levels up the character, adds to their stats based on their class
+        /// </summary>
         public abstract void LevelUp();
-        public abstract void Damage();
-        // add all stats from levelling namechange
-        public abstract int GetBaseTotalAttributes();
-        // add all stats including equipment osv, namechange
-        public abstract int GetTotalAttributes();
-        // Character stats display, name, level, stats + gear bonuses, damage
-        public abstract string DisplayCharacterStats();
+
+        /// <summary>
+        /// Uses the characters' stats and equipment to calculate their damage output
+        /// </summary>
+        public abstract double Damage();
+
+        /// <summary>
+        /// Equips a given item in the correct slot
+        /// </summary>
+        /// <param name="item"></param>
+        public abstract void Equip(Item item);
+
+        /// <summary>
+        /// Adds up all stats of a character including equipment
+        /// </summary>
+        /// <returns>stat total</returns>
+        public virtual PrimaryAttribute GetTotalAttributes()
+        {
+            return Stats + GetTotalEqiupmentAttributes();
+        }
+
+        /// <summary>
+        /// Adds upp all stats of character's equpment
+        /// </summary>
+        /// <returns></returns>
+        public virtual PrimaryAttribute GetTotalEqiupmentAttributes()
+        {
+            PrimaryAttribute total = new();
+            foreach (KeyValuePair<Item.ItemSlot, Item> entry in Equipment)
+            {
+                total = total + entry.Value.GetAttribute();
+            }
+            return total;
+        }
+
+        /// <summary>
+        /// Returns the character's stats added up
+        /// </summary>
+        /// <returns></returns>
+        public virtual int GetStatTotal()
+        {
+            return Stats.Strength + Stats.Dexterity + Stats.Intelligence;
+        }
+
+        /// <summary>
+        /// Returns a string with a characters stats, name, level, stats + gear bonuses and damage
+        /// </summary>
+        /// <returns></returns>
+        public virtual string DisplayCharacterStats()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Name:\t" + Name);
+            sb.Append("\nClass:\t" + this.GetType().Name);
+            sb.Append("\nLevel:\t" + Level.ToString());
+            // Base stats
+            sb.Append("\nBase Stats:");
+            sb.Append("\n\nStrength:\t" + Stats.Strength.ToString());
+            sb.Append("\nDexterity:\t" + Stats.Dexterity.ToString());
+            sb.Append("\nIntelligence:\t" + Stats.Intelligence.ToString());
+            sb.Append("\nStat total:\t" + this.GetStatTotal().ToString());
+            // Stats from gear
+            sb.Append("\nStats with equipment bonuses:");
+            sb.Append("\n\nStrength:\t" + this.GetTotalAttributes().Strength.ToString());
+            sb.Append("\nDexterity:\t" + this.GetTotalAttributes().Dexterity.ToString());
+            sb.Append("\nIntelligence:\t" + this.GetTotalAttributes().Intelligence.ToString());
+            sb.Append("\nStat total:\t" + (this.GetTotalAttributes().Strength + this.GetTotalAttributes().Dexterity + this.GetTotalAttributes().Intelligence).ToString());
+            return sb.ToString();
+        }
     }
 }

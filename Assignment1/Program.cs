@@ -17,12 +17,24 @@ namespace Assignment1
 
 
 			Mage Yen = new Mage();
-
 			Yen.Name = "Yen";
             Console.WriteLine(Yen.Name);
 			Console.WriteLine(Yen.Stats.Intelligence);
 			Yen.LevelUp();
             Console.WriteLine(Yen.Stats.Intelligence);
+            Console.WriteLine(Yen.Level);
+
+            Console.WriteLine(Yen.DisplayCharacterStats());
+
+			Weapon testWpn = new Weapon()
+			{
+				Name = "En øks",
+				RequiredLvl = 1,
+				//Slot = Item.ItemSlot.WeaponSlot,
+				Type = Weapon.WeaponType.Axe,
+				//WeaponStats.Damage = 7,
+				//WeaponStats.AttackSpeed = 1.1
+			};
 
 		}
 	}

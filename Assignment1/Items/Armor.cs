@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment1.Items
+namespace Assignment1
 {
     class Armor : Item
     {
-
+        PrimaryAttribute ArmorStats = new();
+        public override PrimaryAttribute GetAttribute()
+        {
+            return ArmorStats;
+        }
     }
 }
