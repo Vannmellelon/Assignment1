@@ -27,10 +27,39 @@ namespace Assignment1
         public abstract double Damage();
 
         /// <summary>
-        /// Equips a given item in the correct slot
+        /// Equips a given piece of armor in the correct slot
         /// </summary>
-        /// <param name="item"></param>
-        public abstract void Equip(Item item);
+        /// <param name="armor"></param>
+        public virtual void EquipArmor(Armor armor)
+        {
+            Slot.ItemSlot _slot = armor.EquipableSlot;
+            if (CheckIfCanEquipArmor(armor)) Equipment[_slot] = armor;
+            // else Exception();
+        }
+
+        /// <summary>
+        /// Equips a given weapon in the correct slot
+        /// </summary>
+        /// <param name="weapon"></param>
+        public virtual void EquipWeapon(Weapon weapon)
+        {
+            if (CheckIfCanEquipWeapon(weapon)) Equipment[Slot.ItemSlot.WeaponSlot] = weapon;
+            // else Exception();
+        }
+
+        /// <summary>
+        /// Checks if the armor is of a type that the character can equip
+        /// </summary>
+        /// <param name="armor"></param>
+        /// <returns></returns>
+        public abstract bool CheckIfCanEquipArmor(Armor armor);
+
+        /// <summary>
+        /// Checks if the weapon is of a type that the character can equip
+        /// </summary>
+        /// <param name="weapon"></param>
+        /// <returns></returns>
+        public abstract bool CheckIfCanEquipWeapon(Weapon weapon);
 
         /// <summary>
         /// Adds up all stats of a character including equipment
@@ -63,7 +92,6 @@ namespace Assignment1
         {
             return Stats.Strength + Stats.Dexterity + Stats.Intelligence;
         }
-
         /// <summary>
         /// Returns a string with a characters stats, name, level, stats + gear bonuses and damage
         /// </summary>

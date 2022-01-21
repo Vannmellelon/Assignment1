@@ -36,9 +36,16 @@ namespace Assignment1
             return damage;
         }
 
-        public override void Equip(Item item)
+        public override bool CheckIfCanEquipArmor(Armor armor)
         {
-            
+            if (armor.Type == Armor.ArmorType.Cloth) return true;
+            else return false;
+        }
+
+        public override bool CheckIfCanEquipWeapon(Weapon weapon)
+        {
+            if (weapon.Type == Weapon.WeaponType.Staff || weapon.Type == Weapon.WeaponType.Staff) return true;
+            else return false;
         }
     }
 }

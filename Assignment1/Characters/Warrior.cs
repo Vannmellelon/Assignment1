@@ -28,7 +28,7 @@ namespace Assignment1
 
         public override double Damage()
         {
-            Weapon wpn = (Weapon)Equipment.GetValueOrDefault(Item.ItemSlot.WeaponSlot);
+            Weapon wpn = (Weapon)Equipment.GetValueOrDefault(Slot.ItemSlot.WeaponSlot);
             if (wpn == null) return 1;
 
             double damage = wpn.DamagePerSecond() * (1 + GetTotalAttributes().Strength / 100);
@@ -36,9 +36,17 @@ namespace Assignment1
             return damage;
         }
 
-        public override void Equip(Item item)
+        public override bool CheckIfCanEquipArmor(Armor armor)
         {
-            throw new NotImplementedException();
+            if (armor.Type == Armor.ArmorType.Mail || armor.Type == Armor.ArmorType.Plate) return true;
+            else return false;
         }
+
+        public override bool CheckIfCanEquipWeapon(Weapon wpn)
+        {
+            if (wpn.Type == Weapon.WeaponType.Axe || wpn.Type == Weapon.WeaponType.Hammer || wpn.Type == Weapon.WeaponType.Sword) return true;
+            else return false;
+        }
+
     }
 }
