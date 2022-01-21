@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class Weapon : Item
+    public class Weapon : Item
     {
         /// <summary>
         /// Default constructor assigns slot to WeaponSlot

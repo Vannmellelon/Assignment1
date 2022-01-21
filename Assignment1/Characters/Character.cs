@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    abstract class Character
+    public abstract class Character
     {
         // Getters and Setters
         public string Name { get; set; }

@@ -6,9 +6,13 @@ namespace TestsAssignment1
     public class CharacterTests
     {
         [Fact]
-        public void Test1()
+        public void CharacterCreation_Normal_ShouldBeLvl1()
         {
+            // Arrange 
+            Mage Yen = new Mage();
+            // Act
 
+            // Assert
         }
     }
 }

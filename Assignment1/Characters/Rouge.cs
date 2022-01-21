@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class Rouge : Character
+    public class Rouge : Character
     {
         /// <summary>
         /// Sets the Rouge's lvl.1 stats

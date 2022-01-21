@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    abstract class Item
+    public abstract class Item
     {
         public Slot.ItemSlot EquipableSlot;
         public string Name { get; set; }

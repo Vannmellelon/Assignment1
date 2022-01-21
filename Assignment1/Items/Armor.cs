@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class Armor : Item
+    public class Armor : Item
     {
         public Armor()
         {

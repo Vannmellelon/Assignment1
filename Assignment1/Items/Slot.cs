@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    internal class Slot
+    public class Slot
     {
         // Enum for Item slots
         public enum ItemSlot
